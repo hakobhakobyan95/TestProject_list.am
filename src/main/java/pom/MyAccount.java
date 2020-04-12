@@ -1,0 +1,178 @@
+package pom;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import utils.SeleniumUtils;
+
+public class MyAccount extends Screen{
+    WebDriver driver;
+    SeleniumUtils utils;
+
+    public MyAccount(WebDriver driver) {
+        super(driver);
+        this.driver = driver;
+        utils = new SeleniumUtils(driver);
+    }
+
+//This is id of settings button
+    By settingButton = By.id("idTabProfile");
+    /*This is for clicking settings button*/
+    public MyAccount clickSettingsButton(){
+        utils.click(userName);
+        utils.click(settingButton);
+        return this;
+    }
+
+//
+    By locationSection = By.id("_idlocation");
+    /**/
+    public MyAccount selectLocation(){
+        utils.select(locationSection,"2");
+        return this;
+    }
+
+//
+    By saveButton = By.id("edit_profileaction__form_action0");
+    /**/
+    public void clickSaveButton(){
+        utils.click(saveButton);
+    }
+
+//test case 21
+//name field
+    By myName = By.id("_idyour_name");
+    public MyAccount changeName() throws InterruptedException {
+//        utils.click(notificationButton);
+        utils.clearField(myName);
+        utils.sendKeys(myName,"Hakob");
+        return this;
+    }
+
+
+    // for Case 22**************************************************************************************************
+    //move to username
+    By userName = By.id("ma");
+    //move to Ads
+    By ads = By.xpath("//div[contains(text(),'My Ads')]");
+    //Post to classifieds button
+    By post = By.xpath("//a[@class='bblink']");
+    //marketplace
+    By marketplace = By.xpath("//a[contains(text(),'Marketplace')]");
+    //Everything else
+    By everything = By.xpath("//body//a[12]");
+    //Title field
+    By title = By.id("_idtitle");
+    //Description field
+    By description = By.id("_iddescription");
+    //Preview button
+    By preview = By.id("postaction__form_action0");
+    private void adPosting() throws InterruptedException {
+        utils.moveToElement(userName);
+        utils.moveToElement(ads);
+        utils.click(ads);
+        utils.click(post);
+        utils.click(marketplace);
+        utils.click(everything);
+    }
+    public MainPage invalidTitle() throws InterruptedException {
+        adPosting();
+        utils.sendKeys(title, "Book");
+        utils.sendKeys(description, "A Farewell to Arms is a novel by Ernest Hemingway set during " +
+                "the Italian campaign of World War I.");
+        utils.click(preview);
+        MainPage myAccount = new MainPage(driver);
+        return myAccount;
+    }
+//    test case 23 *****************************************************************************************************
+By editButton = By.xpath("//*[@id=\"main\"]/div[2]/div[2]/div/div[1]/div/div[2]/div[2]/a[2]/img");
+    public MyAccount clickEditButton() {
+//        utils.moveToElement(userName);
+        utils.click(userName);
+        utils.click(editButton);
+        return this;
+    }
+    //
+    By descriptionField = By.id("_iddescription");
+    public MyAccount summeryEditing() throws InterruptedException {
+        utils.sendKeys(descriptionField, "This message is for verification");
+        return this;
+    }
+    //
+    By previewButton = By.id("postaction__form_action0");
+    public MyAccount clickPreviewButton() throws InterruptedException {
+        utils.click(previewButton);
+        Thread.sleep(3000);
+        return this;
+    }
+
+
+    // for Case 24 *****************************************************************************************************
+    By favAds = By.xpath("//div[contains(text(),'Favorite Ads')]");
+    By heartButton = By.xpath(("//div[@class='off']"));
+    public MainPage FavouriteAdsPage(){
+        utils.click(heartButton);
+        utils.moveToElement(userName);
+        utils.moveToElement(favAds);
+        utils.click(favAds);
+        MainPage myAccount = new MainPage(driver);
+        return myAccount;
+    }
+
+    //for case 25
+    By unlike = By.xpath("//div[@class='star']");
+    public MainPage removeFav (){
+        utils.moveToElement(userName);
+        utils.moveToElement(favAds);
+        utils.click(favAds);
+        utils.moveToElement(unlike);
+        utils.click(unlike);
+        MainPage myAccount = new MainPage(driver);
+        return myAccount;
+    }
+
+
+    //for case 26
+    By deactivate = By.xpath("//div[@class='l']//div[1]//div[1]//div[2]//div[2]//a[3]//img[1]");
+    public MyAccount clickDeactivateButton() throws InterruptedException {
+        utils.click(userName);
+        utils.click(deactivate);
+        Thread.sleep(3000);
+        return this;
+    }
+    //
+    By deactivatePopUp = By.id("submit_dlg_button");
+    public MyAccount clickDeactivatePopUp() throws InterruptedException {
+        utils.click(deactivatePopUp);
+        Thread.sleep(3000);
+        return this;
+    }
+
+
+    //for case 27
+
+    By settingButtonClick = By.id("idTabProfile");
+    public MyAccount settingButtonClick(){
+        utils.click(settingButtonClick);
+        return this;
+    }
+    //
+    By contactInfoButton = By.xpath("//div[@id='tabmenu']//div[2]//a[1]");
+    public MyAccount clickContactInfo()throws InterruptedException{
+        utils.click(contactInfoButton);
+        return this;
+    }
+    //
+    By addButton = By.xpath("//div[@id='tabcontent']//div[2]//div[2]//div[1]//div[1]//a[1]");
+    public MyAccount clickAddButton() throws InterruptedException{
+        utils.click(addButton);
+        return this;
+    }
+    //
+    By viberPopUp = By.xpath("//input[@id='_idviber']");
+    By clickSaveButton = By.id("submit_dlg_button");
+    public MyAccount inputPopUp() throws InterruptedException{
+        utils.sendKeys(viberPopUp, "091666061");
+        utils.click(clickSaveButton);
+        return this;
+    }
+}
