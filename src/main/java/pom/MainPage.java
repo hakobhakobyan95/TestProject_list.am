@@ -8,31 +8,17 @@ import pom.resultPage.*;
 import java.util.List;
 
 public class MainPage extends Screen {
-    WebDriver driver;
+    private WebDriver driver;
 
     public MainPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
     }
 
-/*//This element choose button languages
-    By allLanguages = By.xpath("//div[@id='lbar']");
-//This is for choosing English language
-    By englishLanguage = By.xpath("//a[contains(text(),'english')]");
-
-    *//*This method change language to English*//*
-    public MainPage selectEnglishLanguage(){
-        utils.click(allLanguages);
-        utils.click(englishLanguage);
-        return this;
-    }*/
-
-
     /*From this method we can choose any of content results*/
-    By searchContent = By.id("contentr");
+    private By searchContent = By.id("contentr");
 
     public void contentGenerate() throws InterruptedException {
-//        WebElement element = driver.findElement(By.xpath("//div[@id='tp']//div[@class='dl']"));
         WebElement element = driver.findElement(By.id("contentr"));
         List<WebElement> list = element.findElements(By.tagName("a"));
         Thread.sleep(5000);
@@ -52,13 +38,12 @@ public class MainPage extends Screen {
     }
 
 
-
     // This is for choosing "All Categories" section
-    By allCategories = By.xpath("//span[contains(text(),'All Categories')]");
+    private By allCategories = By.xpath("//span[contains(text(),'All Categories')]");
     //
-    By clothAndFashion = By.xpath("//div[@class='w']//div//div//a[contains(text(),'Clothing and Fashion')]");
+    private By clothAndFashion = By.xpath("//div[@class='w']//div//div//a[contains(text(),'Clothing and Fashion')]");
     //
-    By menShoes = By.xpath("//div[@class='c']//span//div//a[contains(text(),\"Men's Shoes\")]");
+    private By menShoes = By.xpath("//div[@class='c']//span//div//a[contains(text(),\"Men's Shoes\")]");
 
     /*This method for going all categories to "Men's shoes" section*/
     public ClothingAndFashion goToMenShoesSection() {
@@ -70,9 +55,9 @@ public class MainPage extends Screen {
     }
 
     //Navigates to Real Estate
-    By realEstateSection = By.xpath("//div[@class='w']//div//div//a[contains(text(),'Real Estate')]");
+    private By realEstateSection = By.xpath("//div[@class='w']//div//div//a[contains(text(),'Real Estate')]");
     //Navigates to Apartment
-    By apartment = By.xpath("//span[1]//div[1]//div[1]//div[1]//a[1]");
+    private By apartment = By.xpath("//span[1]//div[1]//div[1]//div[1]//a[1]");
 
     /*This method goes to Real Estate - Apartment section */
     public RealEstate goToRealEstateSection() {
@@ -85,9 +70,9 @@ public class MainPage extends Screen {
 
 
     //Navigate to Jobs
-    By jobs = By.xpath("//div[@class='c']//a[contains(text(),'Jobs')]");
+    private By jobs = By.xpath("//div[@class='c']//a[contains(text(),'Jobs')]");
     //Navigate to Computers and internet
-    By computers = By.xpath("//span[14]//div[1]//div[1]//a[4]");
+    private By computers = By.xpath("//span[14]//div[1]//div[1]//a[4]");
 
     //This method goes to Jobs - Computers and internet section
     public ComputersInternet goToJobsSection() {
@@ -100,8 +85,8 @@ public class MainPage extends Screen {
 
 
     /*This method is responsible for acting with vehicles*/
-    By vehicle = By.xpath("//*[@id=\"menu\"]/div/div[1]/div/div/span[2]/a");
-    By passengersCars = By.xpath("//*[@id=\"menu\"]/div/div[1]/div/div/span[2]/div/div[1]/div[1]/a[1]");
+    private By vehicle = By.xpath("//*[@id=\"menu\"]/div/div[1]/div/div/span[2]/a");
+    private By passengersCars = By.xpath("//*[@id=\"menu\"]/div/div[1]/div/div/span[2]/div/div[1]/div[1]/a[1]");
 
     public ResultPage.Vehicles goToVehicleSection() {
         utils.moveToElement(allCategories);
@@ -111,17 +96,17 @@ public class MainPage extends Screen {
         return new ResultPage.Vehicles(driver);
     }
 
-    By searchBoxArea = By.id("idSearchBox");
-    By clickButton = By.xpath("//form[@id='idSearchF']//button");
+    private By searchBoxArea = By.id("idSearchBox");
+    private By clickButton = By.xpath("//form[@id='idSearchF']//button");
 
     public void crumbName() throws InterruptedException {
         utils.sendKeys(searchBoxArea, "Cars");
         utils.click(clickButton);
     }
 
-    By help = By.xpath("//div[@class='r']//a[1]");
-    By languageEnglish = By.className("en");
-    By languageArmenian = By.className("am");
+    private By help = By.xpath("//div[@class='r']//a[1]");
+    private By languageEnglish = By.className("en");
+    private By languageArmenian = By.className("am");
 
     public void translatedInfo() throws InterruptedException {
         utils.click(help);
@@ -146,29 +131,21 @@ public class MainPage extends Screen {
 
 
     //log in
-    By myAccount = By.id("ma");
+    private By myAccount = By.id("ma");
     //
-    By emailField = By.id("_idyour_email");
+    private By emailField = By.id("_idyour_email");
     //
-    By passwordFiled = By.id("_idpassword");
+    private By passwordFiled = By.id("_idpassword");
     //
-    By logInButton = By.id("loginaction__form_action0");
+    private By logInButton = By.id("loginaction__form_action0");
     //
-    By mainPageButton = By.xpath("//a[@id='l']");
+    private By mainPageButton = By.xpath("//a[@id='l']");
 
-    /**/
-//    public void logIn() throws InterruptedException {
-//        utils.click(myAccount);
-//        utils.sendKeys(emailField, "testforlist@mailinator.com");
-//        utils.sendKeys(passwordFiled, "AutomationCourse");
-//        utils.click(logInButton);
-//
-//    }
 
-    By settingPage = By.xpath("//div[contains(text(),'Settings')]");
+    //
+    private By settingPage = By.xpath("//div[contains(text(),'Settings')]");
 
     public MyAccount settingsPage() {
-//        utils.click(mainPageButton);
         System.out.println("jbkvsdhjjvfdbcxmbvxcm");
         utils.moveToElement(myAccount);
         utils.click(settingPage);
@@ -178,9 +155,9 @@ public class MainPage extends Screen {
 
 
     //This button for choose Pets and Plants
-    By petsAndPlants = By.xpath("//body//span[10]");
+    private By petsAndPlants = By.xpath("//body//span[10]");
     //This button for chose House Plants in Pets and Plants section
-    By housePlants = By.xpath("//a[contains(text(),'House Plants')]");
+    private By housePlants = By.xpath("//a[contains(text(),'House Plants')]");
 
     //    For case 12 redirected functionality
     public PetsAndPlants redirectToHousePlants() {
@@ -191,8 +168,8 @@ public class MainPage extends Screen {
         return petsAndPlants;
     }
 
-    By jobsSection = By.xpath("//div[@class='c']//a[contains(text(),'Jobs')]");
-    By officeAndSecretary = By.xpath("//a[contains(text(),'Office and Secretary')]");
+    private By jobsSection = By.xpath("//div[@class='c']//a[contains(text(),'Jobs')]");
+    private By officeAndSecretary = By.xpath("//a[contains(text(),'Office and Secretary')]");
 
     //    For test case 13
     public Jobs jobsSection() {
@@ -203,12 +180,13 @@ public class MainPage extends Screen {
         return jobs;
     }
 
-//
-    By searchField = By.id("idSearchBox");
-//
-    By searchButton = By.xpath("//form[@id='idSearchF']//button");
+    //
+    private By searchField = By.id("idSearchBox");
+    //
+    private By searchButton = By.xpath("//form[@id='idSearchF']//button");
+
     public void typeInSearchField() throws InterruptedException {
-        utils.sendKeys(searchField,"Cars");
+        utils.sendKeys(searchField, "Cars");
         utils.click(searchButton);
         utils.clearField(searchField);
         utils.click(searchButton);
@@ -225,9 +203,10 @@ public class MainPage extends Screen {
     }
 
     //for case 30
-    By page5 = By.xpath("//a[contains(text(),'5')]");
-    By gridView = By.xpath("//a[@class='grid s']");
-    public MainPage moveToOtherPage(){
+    private By page5 = By.xpath("//a[contains(text(),'5')]");
+    private By gridView = By.xpath("//a[@class='grid s']");
+
+    public MainPage moveToOtherPage() {
         utils.moveToElement(allCategories);
         utils.moveToElement(realEstateSection);
         utils.moveToElement(apartment);

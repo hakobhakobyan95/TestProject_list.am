@@ -8,7 +8,7 @@ import utils.SeleniumUtils;
 
 public class ListPage extends Screen {
 
-    WebDriver driver;
+    private WebDriver driver;
     SeleniumUtils utils;
 
     public ListPage(WebDriver driver) {
@@ -18,14 +18,16 @@ public class ListPage extends Screen {
 
     }
 
-    By locElement = By.id("locList");
+    private By locElement = By.id("locList");
+
     public MainPage locationYerevan() {
         utils.select(locElement, "8");
         MainPage mainPage = new MainPage(driver);
         return mainPage;
     }
 
-    By chosenItem = By.xpath("//div[@id='tp']//a[1]//img[1]");
+    private By chosenItem = By.xpath("//div[@id='tp']//a[1]//img[1]");
+
     /*This method is for item choosing*/
     public MainPage chooseItem() {
         utils.click(chosenItem);

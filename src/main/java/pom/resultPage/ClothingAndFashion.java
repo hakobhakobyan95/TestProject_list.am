@@ -10,7 +10,7 @@ import utils.SeleniumUtils;
 import java.util.List;
 
 public class ClothingAndFashion extends Screen {
-    WebDriver driver;
+    private WebDriver driver;
     SeleniumUtils utils;
 
     public ClothingAndFashion(WebDriver driver) {
@@ -21,7 +21,7 @@ public class ClothingAndFashion extends Screen {
 
 
     //This "NEW" checkbox
-    By newCondition = By.id("idcnd0");
+    private By newCondition = By.id("idcnd0");
 
     /*This method chose NEW condition*/
     public MainPage setNewCondition() throws InterruptedException {
@@ -32,7 +32,7 @@ public class ClothingAndFashion extends Screen {
     }
 
     //This is selection for size of shoes
-    By selectSizeSection = By.xpath("//select[@name='_a6']");
+    private By selectSizeSection = By.xpath("//select[@name='_a6']");
 
     /*This method select size of shoes 43*/
     public MainPage setSelectSize() {
@@ -42,12 +42,12 @@ public class ClothingAndFashion extends Screen {
     }
 
 
-//
-    By locationField = By.id("locList");
+    //
+    private By locationField = By.id("locList");
 
     /*This method choose Yerevan from location section*/
-    public MainPage setLocation(){
-        utils.select(locationField,"3");
+    public MainPage setLocation() {
+        utils.select(locationField, "3");
         MainPage mainPage = new MainPage(driver);
         return mainPage;
     }

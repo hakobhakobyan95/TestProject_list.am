@@ -8,7 +8,7 @@ import pom.Screen;
 import utils.SeleniumUtils;
 
 public class Jobs extends Screen {
-    WebDriver driver;
+    private WebDriver driver;
     SeleniumUtils utils;
 
     public Jobs(WebDriver driver) {
@@ -17,8 +17,9 @@ public class Jobs extends Screen {
         utils = new SeleniumUtils(driver);
     }
 
-By agencyButton = By.xpath("//label[contains(text(),'Agency')]");
-//    This is choosing only Agency type
+    private By agencyButton = By.xpath("//label[contains(text(),'Agency')]");
+
+    //    This is choosing only Agency type
     public MainPage clickToAgency() throws InterruptedException {
         utils.click(agencyButton);
         MainPage mainPage = new MainPage(driver);

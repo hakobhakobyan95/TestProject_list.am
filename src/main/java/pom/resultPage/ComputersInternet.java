@@ -13,10 +13,10 @@ import java.util.List;
 
 public class ComputersInternet extends Screen {
 
-    WebDriver driver;
+    private WebDriver driver;
     SeleniumUtils utils;
 
-    public ComputersInternet (WebDriver driver) {
+    public ComputersInternet(WebDriver driver) {
         super(driver);
         this.driver = driver;
         utils = new SeleniumUtils(driver);
@@ -25,7 +25,7 @@ public class ComputersInternet extends Screen {
     //for test CASE 16
     // Get Employment type type drop down
 
-    By employment = By.xpath("//select[@name='_a8']");
+    private By employment = By.xpath("//select[@name='_a8']");
 
 
     /*This method chooses Permanent time as Employment type*/
@@ -39,10 +39,10 @@ public class ComputersInternet extends Screen {
 
     //For test CASE 17
     //Get Job Schedule
-    By schedule = By.xpath("//select[@name='_a9']");
+    private By schedule = By.xpath("//select[@name='_a9']");
 
     //This method chooses job schedule
-    public MainPage setJobSchedule(){
+    public MainPage setJobSchedule() {
         utils.select(schedule, "1");
         MainPage scheduleType = new MainPage(driver);
         return scheduleType;
