@@ -206,7 +206,8 @@ public class AssertFor extends Screen {
     By info = By.xpath("//div[@class='info']");
 
     /*After save info*/
-    public String getInfoAfterSave() {
+    public String getInfoAfterSave() throws InterruptedException {
+        Thread.sleep(3000);
         System.out.println(utils.getText(info));
         return utils.getText(info);
     }
@@ -232,14 +233,14 @@ public class AssertFor extends Screen {
 
     //for case 24
 //Assert that there is 1 Fav ad
-    By adCount = By.xpath("//span[contains(text(),'2')]");
+    By adCount = By.xpath("//span[contains(text(),'1')]");
     public String getFavAdCount() throws InterruptedException {
         Thread.sleep(5000);
         return  utils.getText(adCount);
     }
 
     // for case 25
-    By count = By.xpath("//span[contains(text(),'1')]");
+    By count = By.xpath("//div[contains(text(),'Ads')]//span");
     public String getFavRemovedCount() throws InterruptedException {
         Thread.sleep(4000);
         return utils.getText(count);
@@ -257,6 +258,14 @@ public class AssertFor extends Screen {
     public String viberNumberVerification() throws InterruptedException{
         Thread.sleep(3000);
         return utils.getText(viberNumberCheck);
+    }
+
+    //for case 28
+    By replyButton = By.xpath("//input[@name='Reply']");
+
+    public String getReplyButton () throws InterruptedException {
+        Thread.sleep(5000);
+        return utils.getText(replyButton);
     }
 
 

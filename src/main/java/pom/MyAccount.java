@@ -44,7 +44,7 @@ public class MyAccount extends Screen{
     public MyAccount changeName() throws InterruptedException {
 //        utils.click(notificationButton);
         utils.clearField(myName);
-        utils.sendKeys(myName,"Hakob");
+        utils.sendKeys(myName,"Hayk");
         return this;
     }
 
@@ -53,7 +53,7 @@ public class MyAccount extends Screen{
     //move to username
     By userName = By.id("ma");
     //move to Ads
-    By ads = By.xpath("//div[contains(text(),'My Ads')]");
+    By ads = By.xpath("//a[contains(text(),'Post to Classifieds')]");
     //Post to classifieds button
     By post = By.xpath("//a[@class='bblink']");
     //marketplace
@@ -67,10 +67,7 @@ public class MyAccount extends Screen{
     //Preview button
     By preview = By.id("postaction__form_action0");
     private void adPosting() throws InterruptedException {
-        utils.moveToElement(userName);
-        utils.moveToElement(ads);
-        utils.click(ads);
-        utils.click(post);
+         utils.click(ads);
         utils.click(marketplace);
         utils.click(everything);
     }
@@ -84,9 +81,9 @@ public class MyAccount extends Screen{
         return myAccount;
     }
 //    test case 23 *****************************************************************************************************
-By editButton = By.xpath("//*[@id=\"main\"]/div[2]/div[2]/div/div[1]/div/div[2]/div[2]/a[2]/img");
+By editButton = By.xpath("//div[3]//div[1]//div[2]//div[2]//a[1]");
     public MyAccount clickEditButton() {
-//        utils.moveToElement(userName);
+        utils.moveToElement(userName);
         utils.click(userName);
         utils.click(editButton);
         return this;
@@ -120,11 +117,12 @@ By editButton = By.xpath("//*[@id=\"main\"]/div[2]/div[2]/div/div[1]/div/div[2]/
 
     //for case 25
     By unlike = By.xpath("//div[@class='star']");
-    public MainPage removeFav (){
+    public MainPage removeFav () throws InterruptedException {
         utils.moveToElement(userName);
         utils.moveToElement(favAds);
         utils.click(favAds);
-        utils.moveToElement(unlike);
+        Thread.sleep(2000);
+//        utils.moveToElement(unlike);
         utils.click(unlike);
         MainPage myAccount = new MainPage(driver);
         return myAccount;
@@ -132,7 +130,7 @@ By editButton = By.xpath("//*[@id=\"main\"]/div[2]/div[2]/div/div[1]/div/div[2]/
 
 
     //for case 26
-    By deactivate = By.xpath("//div[@class='l']//div[1]//div[1]//div[2]//div[2]//a[3]//img[1]");
+    By deactivate = By.xpath("//*[@id=\"main\"]/div[2]/div[2]/div/div[1]/div/div[2]/div[2]/a[2]/img");
     public MyAccount clickDeactivateButton() throws InterruptedException {
         utils.click(userName);
         utils.click(deactivate);
@@ -168,11 +166,22 @@ By editButton = By.xpath("//*[@id=\"main\"]/div[2]/div[2]/div/div[1]/div/div[2]/
         return this;
     }
     //
-    By viberPopUp = By.xpath("//input[@id='_idviber']");
+    By viberPopUp = By.id("_idviber");
     By clickSaveButton = By.id("submit_dlg_button");
     public MyAccount inputPopUp() throws InterruptedException{
         utils.sendKeys(viberPopUp, "091666061");
         utils.click(clickSaveButton);
         return this;
+    }
+
+    //for case 28
+    By messages = By.xpath("//body//a[4]");
+
+    public MainPage goToMessages() throws InterruptedException {
+        MainPage mainPage = new MainPage(driver);
+        utils.moveToElement(userName);
+        utils.moveToElement(messages);
+        utils.click(messages);
+        return new MainPage(driver);
     }
 }

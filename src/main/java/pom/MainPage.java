@@ -41,6 +41,17 @@ public class MainPage extends Screen {
         list.get(10).click();
     }
 
+    //for case 28, finds the list of messages
+    public void findMessageList() throws InterruptedException {
+        WebElement element = driver.findElement(By.xpath("//div[@class='dlmsg']"));
+        List<WebElement> list = element.findElements(By.tagName("a"));
+        Thread.sleep(2000);
+        System.out.println(list.size());
+        list.get(6).click();
+        System.out.println("Click on message");
+    }
+
+
 
     // This is for choosing "All Categories" section
     By allCategories = By.xpath("//span[contains(text(),'All Categories')]");
