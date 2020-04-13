@@ -25,7 +25,6 @@ public class PetsAndPlants extends Screen {
     public AssertFor goToJobsOther() {
         utils.moveToElement(jobsButton);
         utils.click(otherJobs);
-        AssertFor assertFor = new AssertFor(driver);
-        return assertFor;
+        return new AssertFor(driver);
     }
 }
