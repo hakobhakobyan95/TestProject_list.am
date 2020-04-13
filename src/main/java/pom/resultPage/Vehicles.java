@@ -21,8 +21,7 @@ public class Vehicles extends Screen {
 
     public MainPage chooseCarType() throws InterruptedException {
         utils.select(model, "74");
-        MainPage carType = new MainPage(driver);
-        return carType;
+        return new MainPage(driver);
     }
 
     private By bodyType = By.name("_a27");
@@ -39,16 +38,14 @@ public class Vehicles extends Screen {
     public MainPage chooseYear() throws InterruptedException {
         utils.select(yearFrom, "2016");
         utils.select(yearTo, "2016");
-        MainPage selectYear = new MainPage(driver);
-        return selectYear;
+        return new MainPage(driver);
     }
 
     private By engine = By.name("_a15");
 
     public MainPage engineType() throws InterruptedException {
         utils.select(engine, "4");
-        MainPage selectEngineType = new MainPage(driver);
-        return selectEngineType;
+        return new MainPage(driver);
 
     }
 
