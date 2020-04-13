@@ -125,8 +125,7 @@ public class MainPage extends Screen {
         utils.moveToElement(services);
         utils.moveToElement(carRentals);
         utils.click(carRentals);
-        ResultPage.ListPage listPage = new ResultPage.ListPage(driver);
-        return listPage;
+        return new ResultPage.ListPage(driver);
     }
 
 
@@ -149,8 +148,7 @@ public class MainPage extends Screen {
         System.out.println("jbkvsdhjjvfdbcxmbvxcm");
         utils.moveToElement(myAccount);
         utils.click(settingPage);
-        MyAccount myAccount = new MyAccount(driver);
-        return myAccount;
+        return new MyAccount(driver);
     }
 
 
@@ -164,8 +162,7 @@ public class MainPage extends Screen {
         utils.moveToElement(allCategories);
         utils.moveToElement(petsAndPlants);
         utils.click(housePlants);
-        PetsAndPlants petsAndPlants = new PetsAndPlants(driver);
-        return petsAndPlants;
+        return new PetsAndPlants(driver);
     }
 
     private By jobsSection = By.xpath("//div[@class='c']//a[contains(text(),'Jobs')]");
@@ -176,8 +173,7 @@ public class MainPage extends Screen {
         utils.moveToElement(allCategories);
         utils.moveToElement(jobsSection);
         utils.click(officeAndSecretary);
-        Jobs jobs = new Jobs(driver);
-        return jobs;
+        return new Jobs(driver);
     }
 
     //
@@ -198,8 +194,7 @@ public class MainPage extends Screen {
         utils.sendKeys(passwordFiled, "hamars-666061");
         utils.click(logInButton);
         utils.click(mainPageButton);
-        MyAccount myAccount = new MyAccount(driver);
-        return myAccount;
+        return new MyAccount(driver);
     }
 
     //for case 30
@@ -215,7 +210,6 @@ public class MainPage extends Screen {
         utils.click(page5);
         utils.moveToElement(gridView);
         utils.click(gridView);
-        MainPage mainPage = new MainPage(driver);
-        return mainPage;
+        return new MainPage(driver);
     }
 }
