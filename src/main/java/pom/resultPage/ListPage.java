@@ -22,8 +22,7 @@ public class ListPage extends Screen {
 
     public MainPage locationYerevan() {
         utils.select(locElement, "8");
-        MainPage mainPage = new MainPage(driver);
-        return mainPage;
+        return new MainPage(driver);
     }
 
     private By chosenItem = By.xpath("//div[@id='tp']//a[1]//img[1]");
@@ -31,8 +30,7 @@ public class ListPage extends Screen {
     /*This method is for item choosing*/
     public MainPage chooseItem() {
         utils.click(chosenItem);
-        MainPage mainPage = new MainPage(driver);
-        return mainPage;
+        return new MainPage(driver);
     }
 
 
