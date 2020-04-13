@@ -82,8 +82,7 @@ public class MyAccount extends Screen {
         utils.sendKeys(description, "A Farewell to Arms is a novel by Ernest Hemingway set during " +
                 "the Italian campaign of World War I.");
         utils.click(preview);
-        MainPage myAccount = new MainPage(driver);
-        return myAccount;
+        return new MainPage(driver);
     }
 
     //test case 23 *****************************************************************************************************
@@ -123,8 +122,7 @@ public class MyAccount extends Screen {
         utils.moveToElement(userName);
         utils.moveToElement(favAds);
         utils.click(favAds);
-        MainPage myAccount = new MainPage(driver);
-        return myAccount;
+        return new MainPage(driver);
     }
 
     //for case 25
@@ -135,10 +133,8 @@ public class MyAccount extends Screen {
         utils.moveToElement(favAds);
         utils.click(favAds);
         Thread.sleep(2000);
-//        utils.moveToElement(unlike);
         utils.click(unlike);
-        MainPage myAccount = new MainPage(driver);
-        return myAccount;
+        return new MainPage(driver);
     }
 
 
