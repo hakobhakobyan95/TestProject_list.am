@@ -37,8 +37,7 @@ public class ClothingAndFashion extends Screen {
     /*This method select size of shoes 43*/
     public MainPage setSelectSize() {
         utils.select(selectSizeSection, "86");
-        MainPage mainPage = new MainPage(driver);
-        return mainPage;
+        return new MainPage(driver);
     }
 
 
@@ -48,8 +47,7 @@ public class ClothingAndFashion extends Screen {
     /*This method choose Yerevan from location section*/
     public MainPage setLocation() {
         utils.select(locationField, "3");
-        MainPage mainPage = new MainPage(driver);
-        return mainPage;
+        return new MainPage(driver);
     }
 
 
