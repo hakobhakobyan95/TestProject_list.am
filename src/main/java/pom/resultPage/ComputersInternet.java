@@ -31,9 +31,8 @@ public class ComputersInternet extends Screen {
     /*This method chooses Permanent time as Employment type*/
     public MainPage setEmploymentType() throws InterruptedException {
         utils.select(employment, "1");
-        MainPage constType = new MainPage(driver);
         Thread.sleep(5000);
-        return constType;
+        return new MainPage(driver);
     }
 
 
@@ -44,8 +43,7 @@ public class ComputersInternet extends Screen {
     //This method chooses job schedule
     public MainPage setJobSchedule() {
         utils.select(schedule, "1");
-        MainPage scheduleType = new MainPage(driver);
-        return scheduleType;
+        return new MainPage(driver);
     }
 
 
