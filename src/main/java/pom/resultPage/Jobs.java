@@ -22,9 +22,8 @@ public class Jobs extends Screen {
     //    This is choosing only Agency type
     public MainPage clickToAgency() throws InterruptedException {
         utils.click(agencyButton);
-        MainPage mainPage = new MainPage(driver);
         Thread.sleep(3000);
-        return mainPage;
+        return new MainPage(driver);
 
     }
 
