@@ -31,9 +31,8 @@ public class RealEstate extends Screen {
     /*This method chooses Stone as construction type*/
     public MainPage setStoneType() throws InterruptedException {
         utils.select(constructionType, "1");
-        MainPage constType = new MainPage(driver);
         Thread.sleep(5000);
-        return constType;
+        return new MainPage(driver);
     }
 
 
@@ -44,8 +43,7 @@ public class RealEstate extends Screen {
     //This method chooses room count as 5
     public MainPage setRoomCount() {
         utils.select(roomCount, "5");
-        MainPage room = new MainPage(driver);
-        return room;
+        return new MainPage(driver);
     }
 
 
@@ -60,8 +58,7 @@ public class RealEstate extends Screen {
     public MainPage setFloor() {
         utils.select(floor1, "4");
         utils.select(floor2, "4");
-        MainPage floor = new MainPage(driver);
-        return floor;
+        return new MainPage(driver);
     }
 
     //For test CASE 7
@@ -79,8 +76,7 @@ public class RealEstate extends Screen {
         utils.sendKeys(space1, "60");
         utils.sendKeys(space2, "60");
         utils.click(submit);
-        MainPage livingSpace = new MainPage(driver);
-        return livingSpace;
+        return new MainPage(driver);
     }
 
 
@@ -89,8 +85,7 @@ public class RealEstate extends Screen {
     public MainPage setWrongFloor() {
         utils.select(floor1, "4");
         utils.select(floor2, "2");
-        MainPage floor = new MainPage(driver);
-        return floor;
+        return new MainPage(driver);
     }
 
 }
