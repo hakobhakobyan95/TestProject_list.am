@@ -29,7 +29,7 @@ public class MyAccount extends Screen {
 
     /**/
     public MyAccount selectLocation() {
-        utils.select(locationSection, "2");
+        utils.select(locationSection, "7");
         return this;
     }
 

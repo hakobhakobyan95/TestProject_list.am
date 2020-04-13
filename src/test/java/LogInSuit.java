@@ -40,16 +40,26 @@ public class LogInSuit extends DriverSettings {
             System.out.println(cookie);
             webDriver.navigate().refresh();
             Thread.sleep(5000);
+        }else {
+            mainPage.logIn();
+            cookies = new Cookie("", "");
+            cookies = getAllCookie();
         }
     }
 
+    //    case 20
+    @Test(priority = 0)
+    public void changeLocation() throws InterruptedException {
+        mainPage.settingsPage()
+                .selectLocation()
+                .clickSaveButton();
+        Thread.sleep(4000);
+        Assert.assertEquals( assertFor.getInfoAfterSave(), "Information updated.");
+    }
 
     //    test case 21
     @Test(priority = 1)
-    public void turOffNotification() throws InterruptedException {
-        mainPage.logIn();
-        cookies = new Cookie("", "");
-        cookies = getAllCookie();
+    public void changeName() throws InterruptedException {
         mainPage.settingsPage()
                 .changeName()
                 .clickSaveButton();
